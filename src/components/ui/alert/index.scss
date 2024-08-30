@@ -1,0 +1,33 @@
+// Error Alert
+
+$borderColor : rgba(255, 25, 0, 0.322) ; ;
+$errorBg : rgb(192 29 29 / 15%) ;
+.alert-danger {
+
+    border: 2px dotted $borderColor;
+    border-radius: 10px;
+    background-color: $errorBg;
+    padding: 15px;
+
+    .alert-header{
+
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+
+        .alert-title{
+            display: flex;
+            align-items: center;
+        }
+
+
+         svg {
+
+            margin-right: 0.6rem;
+        }
+
+        .close{
+            cursor: pointer;
+        }
+    }
+}
