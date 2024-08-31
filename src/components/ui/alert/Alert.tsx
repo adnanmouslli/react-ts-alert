@@ -1,18 +1,19 @@
 import { ReactNode } from "react";
 import "./index.scss" ;
 import { X } from 'lucide-react';
+import { alertTypes } from "../../../type";
 
 
 interface IProps {
-  type : string ,
+  type : alertTypes ,
   title : string ,
   icon: ReactNode,
-  descripton: string
-
+  descripton?: string ,
+  children?: ReactNode ;
 
 }
 
-const Alert = ({type = "alert-danger" , title , icon ,descripton} : IProps) => {
+const Alert = ({type = "alert-default" , title , icon , descripton , children} : IProps) => {
   return (
     
     <div className={type}>
@@ -25,8 +26,9 @@ const Alert = ({type = "alert-danger" , title , icon ,descripton} : IProps) => {
 
             <X size={25} className="close"/>
       </div>
-
-      <p>{descripton}</p>
+      
+      {children ? children : <p>{descripton}</p>}
+     
     </div>
   ); 
 };

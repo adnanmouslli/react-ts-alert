@@ -1,33 +1,69 @@
-// Error Alert
 
-$borderColor : rgba(255, 25, 0, 0.322) ; ;
-$errorBg : rgb(192 29 29 / 15%) ;
-.alert-danger {
+@mixin alert($name , $borderColor , $bgColor , $txtColor) {
 
-    border: 2px dotted $borderColor;
-    border-radius: 10px;
-    background-color: $errorBg;
-    padding: 15px;
+    .#{$name} {
 
-    .alert-header{
-
-        display: flex; 
-        align-items: center;
-        justify-content: space-between;
-
-        .alert-title{
-            display: flex;
+        border: 2px dotted $borderColor;
+        border-radius: 10px;
+        background-color: $bgColor;
+        padding: 15px;
+        color: $txtColor;
+        margin-bottom: 1.5rem;
+    
+        .alert-header{
+    
+            display: flex; 
             align-items: center;
-        }
-
-
-         svg {
-
-            margin-right: 0.6rem;
-        }
-
-        .close{
-            cursor: pointer;
+            justify-content: space-between;
+    
+            .alert-title{
+                display: flex;
+                align-items: center;
+            }
+    
+    
+             svg {
+    
+                margin-right: 0.6rem;
+            }
+    
+            .close{
+                cursor: pointer;
+            }
         }
     }
+
 }
+
+// ألوان التنبيهات المختلفة
+
+// Error Alert
+$errorBorderColor: rgb(158, 23, 8);
+$errorBg: rgba(255, 0, 0, 0.748);
+$errorTxtColor: #f1a5a5;
+@include alert("alert-error", $errorBorderColor, $errorBg, $errorTxtColor);
+
+// Info Alert
+$infoBorderColor: rgba(3, 34, 67, 0.322);
+$infoBg: rgba(0, 123, 255, 0.748);
+$infoTxtColor: #cce5ff;
+@include alert("alert-info", $infoBorderColor, $infoBg, $infoTxtColor);
+
+// Warning Alert
+$warningBorderColor: rgba(67, 51, 3, 0.322);
+$warningBg: rgba(255, 193, 7, 0.748);
+$warningTxtColor: #ffeeba;
+@include alert("alert-warning", $warningBorderColor, $warningBg, $warningTxtColor);
+
+// Success Alert
+$successBorderColor: rgba(13, 60, 24, 0.322);
+$successBg: rgba(40, 167, 69, 0.748);
+$successTxtColor: #d4edda;
+@include alert("alert-success", $successBorderColor, $successBg, $successTxtColor);
+
+// Default Alert
+$defaultBorderColor: rgba(57, 59, 60, 0.322);
+$defaultBg: rgba(108, 117, 125, 0.748);
+$defaultTxtColor: #e2e3e5;
+@include alert("alert-default", $defaultBorderColor, $defaultBg, $defaultTxtColor);
+
